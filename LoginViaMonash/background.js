@@ -1,7 +1,7 @@
 
 // Called when the user clicks on the browser action.
 chrome.browserAction.onClicked.addListener(function(tab) {
-	
+
 var str = tab.url;
     var res = str.split("/");
     var url = "";
@@ -17,7 +17,11 @@ var str = tab.url;
       }
       else
        {
-         url += res[i] + '/'
+					url += res[i];
+					if(i != (res.length -1))
+					{
+							url += '/';
+					}
        }
      }
   chrome.tabs.update(tab.id, {url: url});
